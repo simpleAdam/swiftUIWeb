@@ -133,36 +133,38 @@
 			sButton.el.onchange=(e) => {opts.action(e,sButton)}
 			return sButton
 		}
+		// i tried to make a scrollable view component. its not too great
 		function scrollable(type,...args) {
-				let stack=new Swift(args)
+			let stack=new Swift(args)
 			stack.init('div')
 			.css({display:'flex',height:'100%;',width:'100%'})
 
 			if(type==='vstack'||type==='vStack') {stack.css({flexDirection:'column',overflowY:'scroll'})}
 			else if(type==='hstack'||type==='hStack') {stack.css({overflowX:'scroll'})}
 
-				function addScroll(){
-  var curYPos, curXPos, curDown;
+			function addScroll(){
+			  var curYPos, curXPos, curDown;
+			
+			  let ref=stack.el
+			
+			  ref.addEventListener('mousemove', function(e){ 
+			    if(curDown){
+			      ref.scrollBy(curXPos - e.pageX, (curYPos - e.pageY)/4);
+			    }
+			  });
+			
+			  ref.addEventListener('mousedown', function(e){ 
+			    curYPos = e.pageY; 
+			    curXPos = e.pageX; 
+			    curDown = true; 
+			  });
+			
+			  ref.addEventListener('mouseup', function(e){ 
+			    curDown = false; 
+			  });
+			}
 
-  let ref=stack.el
-
-  ref.addEventListener('mousemove', function(e){ 
-    if(curDown){
-      ref.scrollBy(curXPos - e.pageX, (curYPos - e.pageY)/4);
-    }
-  });
-
-  ref.addEventListener('mousedown', function(e){ 
-    curYPos = e.pageY; 
-    curXPos = e.pageX; 
-    curDown = true; 
-  });
-
-  ref.addEventListener('mouseup', function(e){ 
-    curDown = false; 
-  });
-}
-addScroll()
+			addScroll()
 
 			return stack
 		}
