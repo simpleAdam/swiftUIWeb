@@ -52,21 +52,19 @@
 		let list=["Home","Explore","Bell","Mail"]
 		let urls=["./home.html","./about.html","./buy.html"]
 
-		let endpoint='https://dev.to/api/articles?username=';//'https://dev.to/api/articles?username=nataliedeweerd'
+		let endpoint='https://dev.to/api/articles?username=';
 
 		let myref;
 
 		function getData(api) {
 			fetch(api).then(d => d.json())
 			.then(obj => {
-				console.dir(obj)
 				myref=obj
 				render(homePageView(obj))
 			})
 		}
 
 		function dummyAction(e,vNode) {
-			console.log("was clicked",vNode)
 			let searchterm=vNode.el[0].value
 			getData("https://dev.to/api/articles?username="+searchterm)
 		}

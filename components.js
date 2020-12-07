@@ -1,19 +1,3 @@
-let el=new StyledComponent
-		el.init('p')
-		el.css({fontSize:"44px"})
-		el.text("helloworld")
-
-		let el2=new StyledComponent
-		el2.init('p')
-		el2.css({fontSize:"44px"})
-		el2.text("goodbye world")
-
-
-		/*let vstack=new Swift(el,el2)
-		vstack.init('div')
-		.css({display:'flex',flexDirection:'column'})*/
-
-		//app.appendChild(vstack.el)
 
 		function vStack(...args) {
 			let vstack=new Swift(args)
@@ -117,7 +101,6 @@ let el=new StyledComponent
 			option.init('option')
 			option.css({})
 			option.attr({value:opts.val})
-			console.log('option',opts)
 			option.el.textContent=opts.val
 						
 			option.selected=function() {
@@ -134,12 +117,9 @@ let el=new StyledComponent
 		function form(opts,...args) {
 			let formel=new Swift(args)
 			formel.init('form')
-			console.log(formel)
 			formel.el.onsubmit=function(e) {
 				e.preventDefault()
-				console.log(this,e,e.value);
 				let fdata=new FormData(this);
-				console.log(fdata)
 				opts.action(e,formel)
 			}
 			return formel
