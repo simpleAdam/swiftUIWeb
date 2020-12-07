@@ -36,20 +36,20 @@ class StyledComponent{
 			}
 		}
 
-		class Swift extends StyledComponent{
-			constructor(args) {
-				super();
+class Swift extends StyledComponent{
+	constructor(args) {
+		super();
 
-				this.children=args||[]
-			}
-			init(args) {
-				super.init(args)
-				if(typeof this.children==="string") {this.el.textContent=this.children}
-				else {
-					this.children.forEach(child => {
-					this.append(child.el)
-				})
-			}
-				return this
-			}
-		}
+		this.children=args||[]
+	}
+	init(args) {
+		super.init(args)
+		if(typeof this.children==="string") {this.el.textContent=this.children}
+		else {
+			this.children.forEach(child => {
+			this.append(child.el)
+		})
+	}
+		return this
+	}
+}
