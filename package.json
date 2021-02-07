@@ -4,9 +4,17 @@
   "description": "Its a swift UI like syntax for javascript",
   "main": "./src/base.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "lint": "eslint ./src/*"
   },
   "keywords": [],
   "author": "Adam James",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^16.4.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "jest": "^26.6.3"
+  }
 }

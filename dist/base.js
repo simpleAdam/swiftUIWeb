@@ -61,5 +61,3 @@ class Swift extends StyledComponent {
     return this;
   }
 }
-
-module.exports={Swift,StyledComponent}

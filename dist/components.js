@@ -14,7 +14,6 @@ function vStack(...args) {
 
   return vstackView;
 }
-module.exports=vStack
 
 function hStack(...args) {
   let hstackView = new Swift(args);
