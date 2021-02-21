@@ -31,6 +31,9 @@ function text(args) {
   textView.css({ margin: 0, padding: 0 });
   return textView;
 }
+function label(msg,icon,args) {
+  
+}
 function h(args) {
   let hView = new Swift(args);
   hView.init("h2");
